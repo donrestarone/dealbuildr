@@ -8,6 +8,19 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1 or /documents/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: "documents/show",
+        pdf: @document.title,
+        page_size: 'A4',
+        layout: 'pdf',
+        orientation: "Portrait",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
+      end
+    end
   end
 
   # GET /documents/new

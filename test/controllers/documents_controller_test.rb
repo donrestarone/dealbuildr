@@ -47,6 +47,11 @@ class DocumentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show document as pdf" do
+    get document_url(@document, format: :pdf)
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_document_url(@document)
     assert_response :success

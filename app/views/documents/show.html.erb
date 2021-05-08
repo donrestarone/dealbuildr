@@ -24,7 +24,7 @@
       <%= f.submit "Save Document", class: 'my-2 btn btn-lg btn-block btn-warning' %>
     </div>
     <div>
-      <%= f.submit "Download PDF", class: 'my-2 btn btn-lg btn-block btn-success' %>
+      <%= link_to "Download PDF", document_url(@document, format: :pdf), class: 'my-2 btn btn-lg btn-block btn-success' %>
     </div>
   <% end %>
 </div>
