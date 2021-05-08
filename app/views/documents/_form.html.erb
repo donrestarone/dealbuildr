@@ -16,6 +16,13 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= form.fields_for :content_blocks, form.object.content_blocks do |content_block_form| %>
+      <%= render partial: 'content_blocks/form', locals: { f: content_block_form } %>
+    <% end %>
+    <%= link_to_add_association 'Add Content Block', form, :content_blocks, partial: 'content_blocks/form' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

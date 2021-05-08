@@ -5,5 +5,11 @@
   <%= @document.title %>
 </p>
 
+<div>
+  <% @document.content_blocks.each do |content_block| %>
+    <%= content_block.content %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>
