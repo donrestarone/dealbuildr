@@ -1,4 +1,7 @@
 <div class="form-group nested-fields">
   <label for="answer">Please enter your answer below</label>
   <%= render partial: 'answers/fields', locals: { f: f } %>
+    <% if f.object.new_record? %>
+      <%= link_to_remove_association "Remove Answer", f, class: 'btn btn-sm btn-danger'  %>
+    <% end %>
 </div>
