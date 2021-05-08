@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## running the app
+In dev mode, the app uses a bind mount to allown hot code reloading (via zeitwerk/spring). Ensure that docker and docker compose is installed. Then run the following to bootstrap the application:
+``` bash
+docker-compose build && docker-compose up
+docker-compose run --rm deal_app rails db:create
+docker-compose run --rm deal_app rails db:migrate
+```
 
-Things you may want to cover:
+# running the test suite
+There is a basic minitest suite that exercises all the functions of the application, including PDF generation. To run it simply:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` bash
+sudo chmod +x run_tests.sh
+./run_tests.sh
+```
