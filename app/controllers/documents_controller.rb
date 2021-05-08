@@ -70,7 +70,12 @@ class DocumentsController < ApplicationController
         content_blocks_attributes: [
           :content,
           :_destroy,
-          :id
+          :id,
+          answers_attributes: [
+            :content,
+            :_destroy,
+            :id,
+          ]
         ]
       )
     end

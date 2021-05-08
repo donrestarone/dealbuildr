@@ -6,8 +6,18 @@
 </p>
 
 <div>
-  <% @document.content_blocks.each do |content_block| %>
-    <%= content_block.content %>
+  <%= form_with(model: @document) do |f| %>
+    <% @document.content_blocks.each do |content_block| %>
+      <div>
+        <%= content_block.content %>
+        <%= f.fields_for :content_blocks, content_block do |content_block_form| %>
+          <%= render partial: 'content_blocks/fields', locals: { f: content_block_form } %>  
+        <% end %>
+      </div>
+    <% end %>
+    <div>
+      <%= f.submit %>
+    </div>
   <% end %>
 </div>
 
