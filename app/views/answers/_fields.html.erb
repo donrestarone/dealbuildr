@@ -1,0 +1,6 @@
+<%= f.rich_text_area :content %>
+
+<% if f.object.persisted? %>
+  <label for="delete answer">delete</label>
+  <%= f.check_box :_destroy %>
+<% end %>

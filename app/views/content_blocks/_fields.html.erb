@@ -1,6 +1,16 @@
-<%= f.rich_text_area :content %>
+<%= f.rich_text_area :content if action_name != 'show' %>
 
-<% if f.object.persisted? %>
+<% if f.object.persisted? && action_name != 'show' %>
   <label for="delete content block">delete</label>
   <%= f.check_box :_destroy %>
+<% end %>
+
+
+<% if action_name == 'show' %>
+  <%= f.fields_for :answers, f.object.answers do |answer_form| %>
+    <%= render partial: 'answers/form', locals: { f: answer_form } %>
+  <% end %>
+  <div>
+    <%= link_to_add_association 'Add Answer', f, :answers, partial: 'answers/form', class: 'btn btn-sm btn-success' %>
+  </div>
 <% end %>

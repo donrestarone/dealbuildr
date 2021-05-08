@@ -20,10 +20,12 @@
     <%= form.fields_for :content_blocks, form.object.content_blocks do |content_block_form| %>
       <%= render partial: 'content_blocks/form', locals: { f: content_block_form } %>
     <% end %>
-    <%= link_to_add_association 'Add Content Block', form, :content_blocks, partial: 'content_blocks/form' %>
+    <div>
+      <%= link_to_add_association 'Add Content Block', form, :content_blocks, partial: 'content_blocks/form', class: 'btn btn-warning' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save Document", class: 'btn btn-lg btn-block btn-success' %>
   </div>
 <% end %>

@@ -1,13 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>
   <strong>Title:</strong>
   <%= @document.title %>
-</p>
+</h1>
+
 
 <div>
-  <% @document.content_blocks.each do |content_block| %>
-    <%= content_block.content %>
+  <%= form_with(model: @document) do |f| %>
+    <% @document.content_blocks.each do |content_block| %>
+      <div class="card">
+        <div class="card-body">
+          <%= content_block.content %>
+        </div>
+        <div class="card-body">
+          <%= f.fields_for :content_blocks, content_block do |content_block_form| %>
+            <%= render partial: 'content_blocks/fields', locals: { f: content_block_form } %>  
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <%= f.submit "Save Document", class: 'my-2 btn btn-lg btn-block btn-warning' %>
+    </div>
+    <div>
+      <%= f.submit "Download PDF", class: 'my-2 btn btn-lg btn-block btn-success' %>
+    </div>
   <% end %>
 </div>
 
