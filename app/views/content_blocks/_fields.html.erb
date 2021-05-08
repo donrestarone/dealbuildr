@@ -7,9 +7,10 @@
 
 
 <% if action_name == 'show' %>
-  <label for="answers">Answers: </label>
   <%= f.fields_for :answers, f.object.answers do |answer_form| %>
     <%= render partial: 'answers/form', locals: { f: answer_form } %>
   <% end %>
-  <%= link_to_add_association 'Add Answer', f, :answers, partial: 'answers/form' %>
+  <div>
+    <%= link_to_add_association 'Add Answer', f, :answers, partial: 'answers/form', class: 'btn btn-sm btn-success' %>
+  </div>
 <% end %>
