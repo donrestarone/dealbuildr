@@ -1,0 +1,15 @@
+<h1><%= @document.title %></h1>
+
+
+<div class="pt-5">
+  <% @document.content_blocks.each do |content_block| %>
+    <%= content_block.content %>
+    <% if content_block.answers.any? %>
+      <% content_block.answers.each do |answer| %>
+        <%= answer.content %>
+      <% end %>
+    <% else %>
+      <strong>Not Answered Yet.</strong>
+    <% end %>
+  <% end %>
+</div>
