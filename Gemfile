@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "cocoon"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
-
+gem 'image_processing'
 
 
 group :development, :test do
